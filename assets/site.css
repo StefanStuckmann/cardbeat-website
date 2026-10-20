@@ -142,9 +142,18 @@ section { position: relative; }
 @media (min-width: 760px) { .features { grid-template-columns: 1fr 1fr; } }
 .feature { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
 .alt .feature { background: var(--bg); }
-/* A tight 16:10 crop of the real UI: every tile is the same height, no filler. */
-.feature-media { aspect-ratio: 16 / 10; border-bottom: 1px solid var(--line); background: #efeff1; }
-.feature-media img { width: 100%; height: 100%; object-fit: cover; }
+/* Each tile is a 16:10 scene: a device on a gradient, zoomed in on the part that
+   matters. The screenshot is pre-cropped; its cut edges lie outside the tile and
+   only the device's real edges, with their bezel and rounded corners, show.
+   Positions, bezel and radius are in tile cqw, scaled from the real device. */
+.feature-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; container-type: inline-size; border-bottom: 1px solid var(--line); background: linear-gradient(135deg, var(--glow-a), var(--glow-b)); }
+.feature-media.y { background: linear-gradient(135deg, var(--glow-c), var(--glow-a)); }
+.feature-media.b { background: linear-gradient(135deg, var(--glow-b), var(--glow-c)); }
+.feature-media img { position: absolute; max-width: none; height: auto; box-shadow: 0 0 0 var(--b) #0d0d0f, 0 0 0 calc(var(--b) + 2px) #c9c8c4, var(--shadow-lift); }
+.scene-draw img { left: -2.08cqw; top: -10.36cqw; width: 94.08cqw; --b: 2.76cqw; border-radius: 0 0 2.88cqw 0; }
+.scene-write img { left: 30.20cqw; top: 7.00cqw; width: 39.60cqw; --b: 1.26cqw; border-radius: 5.40cqw 5.40cqw 0 0; }
+.scene-style img { left: -11.16cqw; top: 8.00cqw; width: 100.16cqw; --b: 5.52cqw; border-radius: 0 5.76cqw 0 0; }
+.scene-hello img { left: 8.00cqw; top: 9.50cqw; width: 115.00cqw; --b: 3.45cqw; border-radius: 3.60cqw 0 0 0; }
 .feature-body { padding: 16px 20px 18px; display: grid; gap: 4px; }
 .feature-body p { color: var(--muted); }
 
