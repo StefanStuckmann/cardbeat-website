@@ -83,7 +83,6 @@ h2 { font-size: clamp(1.9rem, 4.6vw, 3rem); }
 h3 { font-size: 1.3rem; }
 p { margin: 0; }
 .lede { font-size: clamp(1.1rem, 2.2vw, 1.35rem); color: var(--muted); max-width: 36em; }
-.eyebrow { font: 600 0.8rem/1 var(--text); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 
 /* Soft colour glows, as on the App Store screenshots. */
 .glow { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6; pointer-events: none; z-index: 0; }
