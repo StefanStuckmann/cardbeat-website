@@ -17,7 +17,6 @@
 
   --display: Futura, "Futura PT", "Avenir Next", "Century Gothic", system-ui, sans-serif;
   --text: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, sans-serif;
-  --hand: "Noteworthy", "Marker Felt", "Bradley Hand", "Segoe Print", "Comic Neue", cursive;
 
   --max: 1120px;
   --gutter: 16px;
@@ -84,7 +83,6 @@ h2 { font-size: clamp(1.9rem, 4.6vw, 3rem); }
 h3 { font-size: 1.3rem; }
 p { margin: 0; }
 .lede { font-size: clamp(1.1rem, 2.2vw, 1.35rem); color: var(--muted); max-width: 36em; }
-.eyebrow { font: 600 0.8rem/1 var(--text); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
 
 /* Soft colour glows, as on the App Store screenshots. */
 .glow { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6; pointer-events: none; z-index: 0; }
@@ -115,47 +113,22 @@ p { margin: 0; }
 .hero-copy { display: grid; gap: 22px; justify-items: start; max-width: 760px; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
 
-/* Draggable index cards */
-.board { position: relative; margin: 44px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 760px; }
-@media (min-width: 720px) { .board { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; max-width: none; } }
-.card {
-  aspect-ratio: 5 / 3;
-  border-radius: 3px;
-  background-color: #fff;
-  color: var(--paper-ink);
-  box-shadow: var(--shadow);
-  display: grid; place-items: center; text-align: center;
-  padding: 8px;
-  font: 1.05rem/1.15 var(--hand);
-  rotate: var(--r, 0deg);
-  cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none;
-  transition: box-shadow .18s, scale .18s;
-  position: relative;
-}
-.card.lifted { cursor: grabbing; box-shadow: var(--shadow-lift); scale: 1.06; z-index: 10; transition: box-shadow .18s, scale .18s; }
-.card.label { font: 700 1.05rem/1 var(--text); }
-.card b { display: block; font-weight: 700; font-size: 1.1em; }
-.card small { display: block; font-size: 0.82em; opacity: 0.75; margin-top: 2px; }
-.c-pink   { background-color: #ffe1f6; --pen: #e5397a; }
-.c-yellow { background-color: #fff5c7; --pen: #c78a00; }
-.c-blue   { background-color: #dcf4ff; --pen: #2f7ae5; }
-.c-green  { background-color: #e1f8e7; --pen: #1f9d55; }
-.c-peach  { background-color: #ffe7d7; --pen: #e2551f; }
-.c-lav    { background-color: #ebe7ff; --pen: #7247d6; }
-.card b { color: var(--pen, inherit); }
-.p-grid  { background-image: linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px); background-size: 12px 12px; }
-.p-lined { background-image: repeating-linear-gradient(transparent 0 17px, rgba(47,122,229,.2) 17px 18px); }
-.p-dots  { background-image: radial-gradient(rgba(0,0,0,.2) 1px, transparent 1.4px); background-size: 12px 12px; }
-.board-hint { margin-top: 18px; font: 1rem/1.3 var(--hand); color: var(--muted); display: flex; align-items: center; gap: 8px; }
-
 /* ---------- Devices ---------- */
 .devices { position: relative; margin: 56px auto 0; max-width: 980px; padding-bottom: 6%; }
-.device { background: #0d0d0f; box-shadow: 0 0 0 3px #c9c8c4, var(--shadow-lift); }
-.device img { width: 100%; }
-.ipad { padding: 1.6%; border-radius: clamp(14px, 3vw, 34px); }
-.ipad img { border-radius: clamp(6px, 1.6vw, 18px); }
-.iphone { padding: 2.6%; border-radius: clamp(16px, 4.6vw, 46px); }
-.iphone img { border-radius: clamp(12px, 3.8vw, 38px); }
+/* Each device sizes its bezel and corners from its own width (cqw), so the frame
+   always matches the screen. The bezel is a box-shadow spread around the
+   screenshot, which keeps it concentric with the screen's rounded corners.
+   Corner ratios match AppStoreScreenshots/tools/compose.mjs in the app repo. */
+.device { container-type: inline-size; }
+.device img {
+  width: calc(100% - 2 * var(--b));
+  margin: var(--b);
+  border-radius: var(--r);
+  box-shadow: 0 0 0 var(--b) #0d0d0f, 0 0 0 calc(var(--b) + 2px) #c9c8c4, var(--shadow-lift);
+}
+.iphone   { --b: 3cqw;   --r: 12.8cqw; } /* 180px radius on a 1320px-wide screen */
+.ipad     { --b: 2.4cqw; --r: 2.5cqw; }  /* 72px on 2752px, landscape */
+.duo-shot { --b: 2.4cqw; --r: 4cqw; }    /* 120px on 2853px, landscape */
 .devices .iphone { position: absolute; width: 24%; right: -2%; bottom: 0; }
 @media (max-width: 719px) { .devices .iphone { right: 0; width: 28%; } }
 
@@ -165,19 +138,14 @@ section { position: relative; }
 .section-head { display: grid; gap: 14px; margin-bottom: 44px; max-width: 760px; }
 .alt { background: var(--surface); border-block: 1px solid var(--line); }
 
-.features { display: grid; gap: 22px; }
-@media (min-width: 860px) { .features { grid-template-columns: 1fr 1fr; } }
-.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.features { display: grid; gap: 18px; }
+@media (min-width: 760px) { .features { grid-template-columns: 1fr 1fr; } }
+.feature { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
 .alt .feature { background: var(--bg); }
-.feature-media { background: linear-gradient(135deg, var(--glow-a), var(--glow-b)); padding: 28px 28px 0; display: flex; justify-content: center; align-items: flex-end; min-height: 260px; overflow: hidden; }
-.feature-media.y { background: linear-gradient(135deg, var(--glow-c), var(--glow-a)); }
-.feature-media.b { background: linear-gradient(135deg, var(--glow-b), var(--glow-c)); }
-.feature-media.detail { padding: 0; align-items: stretch; }
-.feature-media.detail img { width: 100%; height: 100%; object-fit: cover; object-position: right top; }
-.feature-media .ipad { width: 100%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; padding-bottom: 0; }
-.feature-media .ipad img { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
-.feature-media .iphone { width: 46%; max-width: 230px; margin-bottom: -38%; }
-.feature-body { padding: 24px 26px 28px; display: grid; gap: 8px; align-content: start; }
+/* A tight 16:10 crop of the real UI: every tile is the same height, no filler. */
+.feature-media { aspect-ratio: 16 / 10; border-bottom: 1px solid var(--line); background: #efeff1; }
+.feature-media img { width: 100%; height: 100%; object-fit: cover; }
+.feature-body { padding: 16px 20px 18px; display: grid; gap: 4px; }
 .feature-body p { color: var(--muted); }
 
 .list { display: grid; gap: 18px; }
@@ -190,8 +158,6 @@ section { position: relative; }
 
 .split { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 860px) { .split { grid-template-columns: 1.05fr 1fr; gap: 64px; } }
-.duo-shot { border-radius: clamp(16px, 3vw, 30px); padding: 1.6%; }
-.duo-shot img { border-radius: clamp(10px, 2vw, 22px); }
 
 /* ---------- Pricing ---------- */
 .plans { display: grid; gap: 20px; }
