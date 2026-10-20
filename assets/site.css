@@ -249,4 +249,3 @@ th { font-weight: 600; background: color-mix(in srgb, var(--surface) 70%, var(--
 tr:last-child td { border-bottom: 0; }
 /* Row labels stay visible while the table scrolls sideways on phones. */
 th:first-child, td:first-child { position: sticky; left: 0; z-index: 1; font-weight: 600; width: 128px; box-shadow: 1px 0 0 var(--line); }
-.placeholder { background: color-mix(in srgb, var(--accent) 18%, transparent); border-radius: 4px; padding: 0 4px; }
