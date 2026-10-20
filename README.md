@@ -2,7 +2,7 @@
 
 The website for [CardBeat](https://apps.apple.com/app/id1488252091), the digital corkboard for plotting novels and screenplays on iPhone and iPad.
 
-Plain static HTML and CSS, served by GitHub Pages from `main`. No build step, no external requests (system fonts, inline SVG, local images).
+Plain static HTML and CSS, served by GitHub Pages from `main` at https://cardbeat.app (see `CNAME`). No build step, no external requests (system fonts, inline SVG, local images).
 
 | Path | Page |
 |---|---|
