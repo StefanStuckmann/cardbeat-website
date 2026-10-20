@@ -157,14 +157,19 @@ section { position: relative; }
 .feature-body { padding: 16px 20px 18px; display: grid; gap: 4px; }
 .feature-body p { color: var(--muted); }
 
-.list { display: grid; gap: 18px; }
-@media (min-width: 720px) { .list { grid-template-columns: repeat(2, 1fr); gap: 22px 40px; } }
-.item { display: grid; grid-template-columns: 44px 1fr; gap: 4px 16px; align-items: start; }
-.item svg { width: 44px; height: 44px; grid-row: span 2; padding: 10px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); color: var(--accent); }
-.alt .item svg { background: var(--bg); }
-.item h3 { font-size: 1.1rem; padding-top: 2px; }
-.item p { color: var(--muted); }
-
+.specials { display: grid; gap: 18px; }
+@media (min-width: 900px) {
+  .specials { grid-template-columns: repeat(3, 1fr); }
+  /* Icon, heading, text and checklist share rows across the three blocks,
+     so they line up even when one heading wraps. */
+  .special { grid-row: span 4; grid-template-rows: subgrid; row-gap: 10px; }
+}
+.special { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 24px 24px 22px; display: grid; gap: 10px; align-content: start; }
+.special svg { width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); color: var(--accent); }
+.special p { color: var(--muted); }
+.special ul { list-style: none; margin: 4px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 0.93rem; }
+.special li { padding-left: 22px; position: relative; }
+.special li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .split { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 860px) { .split { grid-template-columns: 1.05fr 1fr; gap: 64px; } }
 
@@ -172,6 +177,7 @@ section { position: relative; }
 .plans { display: grid; gap: 20px; }
 @media (min-width: 720px) { .plans { grid-template-columns: 1fr 1fr; } }
 .plan { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 30px; display: grid; gap: 14px; align-content: start; }
+.alt .plan { background: var(--bg); }
 .plan.pro { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .plan.pro .muted, .plan.pro li::before { color: color-mix(in srgb, var(--bg) 65%, transparent); }
 .plan .price { font: 700 2.2rem/1 var(--display); }
