@@ -110,6 +110,8 @@ p { margin: 0; }
 .btn-sm { padding: 9px 14px; font-size: 0.9rem; }
 .nav .btn { background: var(--system-blue); color: #fff; }
 .meta { color: var(--muted); font-size: 0.92rem; }
+.meta span { white-space: nowrap; } /* wrap between items, never inside one */
+.founder { color: var(--muted); font-size: 0.95rem; padding-left: 12px; border-left: 3px solid var(--accent); max-width: 36em; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; padding: 56px 0 24px; overflow: hidden; }
@@ -161,6 +163,10 @@ section { position: relative; }
 .feature-body { padding: 16px 20px 18px; display: grid; gap: 4px; }
 .feature-body p { color: var(--muted); }
 
+/* Writers' room: the board on a TV. Bezel and stand scale with the TV's own width. */
+.tv { container-type: inline-size; }
+.tv img { width: calc(100% - 2.8cqw); margin: 1.4cqw 1.4cqw 0; border-radius: 0.5cqw; box-shadow: 0 0 0 1.4cqw #111, 0 0 0 calc(1.4cqw + 1px) #3a3a3a, var(--shadow-lift); }
+.tv-stand { display: block; width: 26cqw; height: 4.5cqw; margin: 1.4cqw auto 0; background: linear-gradient(#2c2c2c, #111); clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%); }
 .specials { display: grid; gap: 18px; }
 @media (min-width: 900px) {
   .specials { grid-template-columns: repeat(3, 1fr); }
@@ -171,6 +177,9 @@ section { position: relative; }
 .special { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 24px 24px 22px; display: grid; gap: 10px; align-content: start; }
 .special svg { width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); color: var(--accent); }
 .special p { color: var(--muted); }
+.checks { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
+.checks li { padding-left: 24px; position: relative; }
+.checks li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .special ul { list-style: none; margin: 4px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 0.93rem; }
 .special li { padding-left: 22px; position: relative; }
 .special li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
