@@ -111,7 +111,11 @@ p { margin: 0; }
 .nav .btn { background: var(--system-blue); color: #fff; }
 .meta { color: var(--muted); font-size: 0.92rem; }
 .meta span { white-space: nowrap; } /* wrap between items, never inside one */
-.founder { color: var(--muted); font-size: 0.95rem; padding-left: 12px; border-left: 3px solid var(--accent); max-width: 36em; }
+/* Founder byline, styled like a social media byline. */
+.byline { display: flex; align-items: center; gap: 12px; }
+.byline img { width: 40px; height: 40px; flex: none; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--surface), var(--shadow); }
+.byline strong { display: block; font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
+.byline span { display: block; color: var(--muted); font-size: 0.88rem; line-height: 1.35; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; padding: 56px 0 24px; overflow: hidden; }
