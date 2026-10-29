@@ -190,6 +190,17 @@ section { position: relative; }
 .split { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 860px) { .split { grid-template-columns: 1.05fr 1fr; gap: 64px; } }
 
+/* ---------- Reviews ---------- */
+.quotes { display: grid; gap: 18px; }
+@media (min-width: 900px) { .quotes { grid-template-columns: repeat(3, 1fr); } }
+.quote { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px; display: grid; gap: 12px; align-content: start; }
+.alt .quote { background: var(--bg); }
+.quote .stars { color: var(--accent); letter-spacing: 2px; font-size: 0.95rem; }
+.quote blockquote { margin: 0; font-size: 1.05rem; line-height: 1.5; }
+.quote figcaption { color: var(--muted); font-size: 0.85rem; }
+.quotes-note { margin-top: 18px; color: var(--muted); font-size: 0.9rem; }
+.quotes-note a { color: var(--ink); }
+
 /* ---------- Pricing ---------- */
 .plans { display: grid; gap: 20px; }
 @media (min-width: 720px) { .plans { grid-template-columns: 1fr 1fr; } }
