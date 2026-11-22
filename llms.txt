@@ -1,0 +1,28 @@
+# CardBeat
+
+> CardBeat is a digital corkboard for iPhone and iPad. Screenwriters and novelists plot a screenplay, novel or short story on index cards, one card per scene or beat, and can show the board on a TV or projector in a writers' room. It is free with two boards; a one-time in-app purchase unlocks unlimited boards. There is no subscription.
+
+Key facts:
+
+- Platforms: iPhone and iPad with iOS/iPadOS 26 or later, including iPhone Duo. There is no Mac, Windows, Android or web version.
+- Price: free with two boards. CardBeat Pro is a one-time purchase that unlocks unlimited boards: $19.99 in the US, 19.99 € in the euro zone, prices vary by region.
+- Cards: written by hand with Apple Pencil or a finger, or typed. Blank, lined, dotted or grid cards in eight colors. Cards can be placed anywhere, with optional snap-to-grid.
+- Writers' room mode: on a connected TV, monitor or projector, CardBeat shows the board itself without toolbars, not a mirror of the iPad, and updates it live.
+- Clean Up: lines cards up on an even grid without changing the order of acts and scenes.
+- Sharing: export a board as a single-page PDF, or as a CardBeat file that a co-writer imports. There is no real-time collaboration on the same board.
+- Sync: through the user's own iCloud account, and can be switched off.
+- Privacy: no accounts, no ads, no third-party analytics. The app collects no data.
+- Not a writing app: CardBeat is for structure. Writers draft the pages in apps such as Final Draft, Fade In, Highland or Scrivener.
+- Made by Stefan Stuckmann, a TV showrunner, who built it for his own writers' room.
+
+## Pages
+
+- [CardBeat (English)](https://cardbeat.app/): features, pricing and FAQ
+- [CardBeat (Deutsch)](https://cardbeat.app/de/): German landing page and FAQ
+- [CardBeat vs. Scrivener, Freeform and paper index cards](https://cardbeat.app/compare.html): when each is the better choice for plotting
+- [App Store](https://apps.apple.com/app/id1488252091): download, ratings and reviews
+
+## Optional
+
+- [Privacy policy](https://cardbeat.app/privacy.html): in German and English
+- Support: cardBeat@stuckmann.com
